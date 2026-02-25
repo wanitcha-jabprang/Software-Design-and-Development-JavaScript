@@ -76,10 +76,65 @@ JavaScript สามารถเพิ่มลงในเว็บเพจไ
    - มีปุ่มเมื่อคลิกแล้วจะแสดงข้อความที่กรอกในช่องข้อความ  (สามารถใช้ document.getElementById('id ของ textbox').value เพื่อดึงข้อมูลในช่อง)
 ### บันทึกผลการทดลอง 
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>แบบฝึกปฏิบัติ JavaScript</title>
+    <script>
+        function showDate() {
+            let today = new Date();
+            let options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        };
+            document.getElementById("result").innerHTML =
+                "วันที่ปัจจุบัน: " + today.toLocaleDateString('th-TH', options);
+        }
+
+        function showText() {
+            let text = document.getElementById("myText").value;
+            document.getElementById("result").innerHTML =
+                "ข้อความที่คุณพิมพ์คือ: " + text;
+        }
+    </script>
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <h2>แบบฝึกปฏิบัติที่ 1: การใช้งาน JavaScript เบื้องต้น</h2>
+    <button onclick="document.getElementById('result').innerHTML='ชื่อนักศึกษา: วณิชชา จับปรั่ง'">
+        แสดงชื่อนักศึกษา
+    </button>
+    <button onclick="showDate()">
+        แสดงวันที่ปัจจุบัน
+    </button>
+    <button onclick="showTime()">
+        แสดงเวลาปัจจุบัน
+    </button>
+
+    <hr>
+    <input type="text" id="myText" placeholder="กรอกข้อความที่นี่">
+    <button onclick="showText()">แสดงข้อความ</button>
+
+    <hr>
+    <p id="result"></p>
+
+</body>
+</html>
+```
+```javascript
+function showTime() {
+    let now = new Date();
+    let options = { hour: '2-digit', minute: '2-digit', second: '2-digit'};
+    document.getElementById("result").innerHTML =
+        "เวลาปัจจุบัน: " + now.toLocaleTimeString('th-TH', options);
+}
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 1](images/image.png)
+![รูปผลการทดลองที่ 1](images/lab1.png)
 
 ## การทดลองที่ 2: พื้นฐาน JavaScript
 ### 2.1 การประกาศตัวแปรและชนิดข้อมูล
